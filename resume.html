@@ -1,556 +1,772 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Futuristic Resume | AI Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajat Soni | Product Manager Resume</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    :root {
-      --bg: #050816;
-      --panel: rgba(15, 23, 42, 0.78);
-      --panel2: rgba(255,255,255,0.04);
-      --primary: #00e5ff;
-      --secondary: #8b5cf6;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --border: rgba(255,255,255,0.08);
+    :root{
+      --bg:#060816;
+      --card:rgba(15,23,42,0.75);
+      --border:rgba(255,255,255,0.08);
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --primary:#00e5ff;
+      --secondary:#8b5cf6;
+      --success:#22c55e;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
+    body{
+      font-family:'Inter',sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(0,229,255,0.12), transparent 28%),
-        radial-gradient(circle at bottom right, rgba(139,92,246,0.15), transparent 28%),
-        #050816;
-      color: var(--text);
-      overflow-x: hidden;
-      min-height: 100vh;
-      position: relative;
+      radial-gradient(circle at top left, rgba(0,229,255,0.12), transparent 25%),
+      radial-gradient(circle at bottom right, rgba(139,92,246,0.12), transparent 25%),
+      var(--bg);
+
+      color:var(--text);
+      overflow-x:hidden;
+      position:relative;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
       background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
-      pointer-events: none;
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+      background-size:40px 40px;
+      mask-image:radial-gradient(circle at center, black 40%, transparent 100%);
+      pointer-events:none;
     }
 
-    .wrapper {
-      width: min(1200px, 92%);
-      margin: 40px auto;
-      position: relative;
-      z-index: 2;
+    .container{
+      width:min(1200px,92%);
+      margin:auto;
+      padding:40px 0;
+      position:relative;
+      z-index:2;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      margin-bottom: 28px;
-    }
-
-    .glass {
-      background: var(--panel);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 30px;
+    .glass{
+      background:var(--card);
+      backdrop-filter:blur(18px);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:28px;
       box-shadow:
-        0 0 40px rgba(0,229,255,0.08),
-        0 0 100px rgba(139,92,246,0.05);
-      position: relative;
-      overflow: hidden;
+      0 0 30px rgba(0,229,255,0.05),
+      0 0 60px rgba(139,92,246,0.04);
+      position:relative;
+      overflow:hidden;
     }
 
-    .glass::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.06), transparent);
-      pointer-events: none;
+    .glass::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+      135deg,
+      rgba(255,255,255,0.05),
+      transparent);
+      pointer-events:none;
     }
 
-    .eyebrow {
-      color: var(--primary);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      margin-bottom: 14px;
-      font-weight: 700;
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      margin-bottom:24px;
     }
 
-    .name {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.7rem, 6vw, 5rem);
-      line-height: 1;
-      margin-bottom: 16px;
-      background: linear-gradient(to right, white, #00e5ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .eyebrow{
+      color:var(--primary);
+      text-transform:uppercase;
+      letter-spacing:3px;
+      font-size:.75rem;
+      margin-bottom:12px;
+      font-weight:700;
     }
 
-    .title {
-      font-size: 1rem;
-      color: var(--primary);
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: 700;
+    .name{
+      font-size:clamp(2.8rem,6vw,5rem);
+      font-family:'Space Grotesk',sans-serif;
+      font-weight:700;
+      line-height:1;
+      margin-bottom:14px;
+
+      background:linear-gradient(to right, white, var(--primary));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    .summary {
-      color: var(--muted);
-      line-height: 1.9;
-      font-size: 1rem;
-      max-width: 90%;
+    .title{
+      color:var(--primary);
+      font-size:1rem;
+      text-transform:uppercase;
+      letter-spacing:2px;
+      margin-bottom:20px;
+      font-weight:700;
     }
 
-    .contact-grid {
-      display: grid;
-      gap: 14px;
+    .summary{
+      color:var(--muted);
+      line-height:1.8;
+      max-width:90%;
+      font-size:1rem;
     }
 
-    .contact-card {
-      background: var(--panel2);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 18px;
-      padding: 16px;
+    .contact-grid{
+      display:grid;
+      gap:14px;
     }
 
-    .contact-label {
-      color: var(--primary);
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
+    .contact-item{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.05);
+      padding:16px;
+      border-radius:18px;
     }
 
-    .contact-value {
-      color: white;
-      font-size: 0.95rem;
+    .contact-label{
+      font-size:.72rem;
+      color:var(--primary);
+      letter-spacing:1px;
+      text-transform:uppercase;
+      margin-bottom:6px;
     }
 
-    .main {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 28px;
+    .contact-value{
+      font-size:.95rem;
+      word-break:break-word;
     }
 
-    .section {
-      margin-bottom: 28px;
+    .main{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:24px;
     }
 
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 24px;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      font-family: 'Orbitron', sans-serif;
+    .section{
+      margin-bottom:24px;
     }
 
-    .section-title::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      background: linear-gradient(to right, var(--primary), transparent);
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:24px;
+      font-size:.95rem;
+      color:var(--primary);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-weight:700;
     }
 
-    .skill {
-      margin-bottom: 18px;
+    .section-title::before{
+      content:"";
+      width:24px;
+      height:2px;
+      background:linear-gradient(to right, var(--primary), transparent);
     }
 
-    .skill-head {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      font-size: 0.92rem;
+    .metric-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
     }
 
-    .skill-bar {
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      overflow: hidden;
+    .metric{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:20px;
     }
 
-    .skill-fill {
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(to right, #00e5ff, #8b5cf6);
-      box-shadow: 0 0 20px rgba(0,229,255,0.4);
+    .metric h2{
+      color:var(--primary);
+      font-size:2rem;
+      margin-bottom:8px;
     }
 
-    .timeline {
-      position: relative;
-      padding-left: 24px;
+    .metric p{
+      color:var(--muted);
+      font-size:.9rem;
+      line-height:1.5;
     }
 
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 5px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(#00e5ff, transparent);
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
     }
 
-    .timeline-item {
-      position: relative;
-      padding: 22px;
-      border-radius: 22px;
-      margin-bottom: 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+    .skill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(0,229,255,0.08);
+      border:1px solid rgba(0,229,255,0.15);
+      font-size:.85rem;
     }
 
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #00e5ff;
-      left: -25px;
-      top: 28px;
-      box-shadow: 0 0 20px #00e5ff;
+    .timeline{
+      position:relative;
+      padding-left:24px;
     }
 
-    .role {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:5px;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:linear-gradient(var(--primary), transparent);
     }
 
-    .company {
-      color: var(--primary);
-      margin-bottom: 8px;
-      font-weight: 600;
+    .timeline-item{
+      position:relative;
+      margin-bottom:20px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:22px;
+      padding:22px;
     }
 
-    .date {
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 12px;
+    .timeline-item::before{
+      content:"";
+      position:absolute;
+      left:-25px;
+      top:28px;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--primary);
+      box-shadow:0 0 20px var(--primary);
     }
 
-    .desc {
-      color: var(--muted);
-      line-height: 1.7;
+    .role{
+      font-size:1.1rem;
+      font-weight:700;
+      margin-bottom:8px;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .company{
+      color:var(--primary);
+      font-weight:600;
+      margin-bottom:8px;
     }
 
-    .tag {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(0,229,255,0.08);
-      border: 1px solid rgba(0,229,255,0.15);
-      font-size: 0.82rem;
+    .date{
+      color:var(--muted);
+      font-size:.85rem;
+      margin-bottom:14px;
     }
 
-    .project {
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 18px;
-      transition: 0.35s ease;
+    .desc{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.96rem;
     }
 
-    .project:hover {
-      transform: translateY(-6px);
-      border-color: rgba(0,229,255,0.3);
+    .desc li{
+      margin-bottom:10px;
     }
 
-    .project-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 12px;
+    .project{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:22px;
+      padding:22px;
+      margin-bottom:16px;
+      transition:.35s ease;
     }
 
-    .project-desc {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 12px;
+    .project:hover{
+      transform:translateY(-6px);
+      border-color:rgba(0,229,255,0.25);
     }
 
-    .project-stack {
-      color: var(--primary);
-      font-size: 0.85rem;
+    .project-title{
+      font-size:1rem;
+      font-weight:700;
+      margin-bottom:12px;
     }
 
-    .footer {
-      text-align: center;
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 0.85rem;
+    .project-desc{
+      color:var(--muted);
+      line-height:1.7;
+      margin-bottom:12px;
     }
 
-    @media (max-width: 920px) {
+    .stack{
+      color:var(--primary);
+      font-size:.85rem;
+    }
+
+    .education{
+      display:grid;
+      gap:16px;
+    }
+
+    .edu-card{
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.06);
+      border-radius:20px;
+      padding:20px;
+    }
+
+    .edu-card h3{
+      margin-bottom:10px;
+    }
+
+    .edu-card p{
+      color:var(--muted);
+    }
+
+    .footer{
+      margin-top:10px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.85rem;
+    }
+
+    @media(max-width:920px){
+
       .hero,
-      .main {
-        grid-template-columns: 1fr;
+      .main{
+        grid-template-columns:1fr;
       }
 
-      .summary {
-        max-width: 100%;
+      .summary{
+        max-width:100%;
       }
+
+      .metric-grid{
+        grid-template-columns:1fr;
+      }
+
     }
+
   </style>
 </head>
+
 <body>
 
-<div class="wrapper" id="app"></div>
+<div class="container">
+
+  <section class="hero">
+
+    <div class="glass">
+
+      <div class="eyebrow">Product × Technology × Strategy</div>
+
+      <div class="name">
+        Rajat Soni
+      </div>
+
+      <div class="title">
+        Product-Oriented Frontend Engineer
+      </div>
+
+      <div class="summary">
+        Product-oriented frontend engineer with cross-functional experience across healthcare SaaS, customer operations, B2C sales, and product execution. Combines engineering fluency with product thinking, stakeholder collaboration, UX awareness, and operational strategy to build scalable customer-centric digital experiences.
+      </div>
+
+    </div>
+
+    <div class="glass">
+
+      <div class="section-title">
+        Contact
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-item">
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">
+            +91-97858-64762
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">
+            Rajatsoni.rs66@gmail.com
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">
+            linkedin.com/in/rajatsoni5
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-label">Location</div>
+          <div class="contact-value">
+            Chandigarh, India
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="main">
+
+    <div>
+
+      <div class="glass section">
+
+        <div class="section-title">
+          Product Metrics
+        </div>
+
+        <div class="metric-grid">
+
+          <div class="metric">
+            <h2>30%</h2>
+            <p>
+              Projected QA efficiency improvement through PRD writing and automation testing initiatives.
+            </p>
+          </div>
+
+          <div class="metric">
+            <h2>25%</h2>
+            <p>
+              Revenue growth achieved by scaling sales operations and CRM training initiatives.
+            </p>
+          </div>
+
+          <div class="metric">
+            <h2>17%</h2>
+            <p>
+              Improvement in compliance metrics and operational quality performance.
+            </p>
+          </div>
+
+          <div class="metric">
+            <h2>4Y+</h2>
+            <p>
+              Cross-functional experience across product, frontend engineering, CX, and operations.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="glass section">
+
+        <div class="section-title">
+          Product Skills
+        </div>
+
+        <div class="skills">
+
+          <div class="skill">Product Research</div>
+          <div class="skill">PRD Writing</div>
+          <div class="skill">Roadmap Planning</div>
+          <div class="skill">Backlog Refinement</div>
+          <div class="skill">Competitive Analysis</div>
+          <div class="skill">Sprint Planning</div>
+          <div class="skill">UX Review</div>
+          <div class="skill">KPI Tracking</div>
+          <div class="skill">Customer Discovery</div>
+          <div class="skill">Feature Prioritization</div>
+          <div class="skill">GTM Strategy</div>
+          <div class="skill">Stakeholder Collaboration</div>
+
+        </div>
+
+      </div>
+
+      <div class="glass section">
+
+        <div class="section-title">
+          Tech Stack
+        </div>
+
+        <div class="skills">
+
+          <div class="skill">React</div>
+          <div class="skill">TypeScript</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">Figma</div>
+          <div class="skill">Jira</div>
+          <div class="skill">Confluence</div>
+          <div class="skill">Git</div>
+          <div class="skill">Postman</div>
+          <div class="skill">Netlify</div>
+          <div class="skill">VS Code</div>
+
+        </div>
+
+      </div>
+
+      <div class="glass section">
+
+        <div class="section-title">
+          Education
+        </div>
+
+        <div class="education">
+
+          <div class="edu-card">
+            <h3>MBA in Entrepreneurship</h3>
+            <p>Amity University, Noida</p>
+          </div>
+
+          <div class="edu-card">
+            <h3>BBA in Marketing & HR</h3>
+            <p>MGSU University, Jodhpur</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div>
+
+      <div class="glass section">
+
+        <div class="section-title">
+          Experience
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="role">
+              Frontend Developer & Product Contributor
+            </div>
+
+            <div class="company">
+              Trulogik Pvt Ltd • Healthcare SaaS
+            </div>
+
+            <div class="date">
+              Feb 2025 — Present • Remote
+            </div>
+
+            <div class="desc">
+              <ul>
+
+                <li>
+                  Collaborated on internal healthcare operations tools translating Figma workflows into scalable API-driven interfaces.
+                </li>
+
+                <li>
+                  Identified UX friction points, proposed product improvements, and contributed directly to roadmap discussions.
+                </li>
+
+                <li>
+                  Authored PRDs and automation testing cases driving a projected 30% increase in QA efficiency.
+                </li>
+
+                <li>
+                  Participated in sprint reviews, backlog refinement, and feature delivery cycles in agile environments.
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="timeline-item">
+
+            <div class="role">
+              Sales Consultant
+            </div>
+
+            <div class="company">
+              OceanaTech Pvt Ltd • Energy Sector
+            </div>
+
+            <div class="date">
+              Nov 2020 — Feb 2022 • Mohali
+            </div>
+
+            <div class="desc">
+              <ul>
+
+                <li>
+                  Contributed to dashboard design, customer success funnels, and sales enablement playbooks.
+                </li>
+
+                <li>
+                  Led CRM adoption training initiatives and scaled operational hiring contributing to 25% revenue growth.
+                </li>
+
+                <li>
+                  Analyzed customer behavior patterns to optimize engagement and improve conversion strategies.
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="timeline-item">
+
+            <div class="role">
+              Analyst
+            </div>
+
+            <div class="company">
+              Eclerx Pvt Ltd • Telecom KPO
+            </div>
+
+            <div class="date">
+              Oct 2018 — Jan 2020 • Chandigarh
+            </div>
+
+            <div class="desc">
+              <ul>
+
+                <li>
+                  Improved operational compliance metrics by 17% across quality, sales, and information accuracy KPIs.
+                </li>
+
+                <li>
+                  Managed KPI tracking systems and contributed to reducing ticket resolution turnaround time.
+                </li>
+
+                <li>
+                  Participated in operational process optimization and weekly performance reviews.
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="glass section">
+
+        <div class="section-title">
+          Product Highlights
+        </div>
+
+        <div class="project">
+
+          <div class="project-title">
+            Healthcare Internal Ops Platform
+          </div>
+
+          <div class="project-desc">
+            Contributed to scalable healthcare operations tooling by collaborating across engineering, UX, QA, and product teams while driving feature clarity and usability improvements.
+          </div>
+
+          <div class="stack">
+            React • Product Thinking • APIs • QA Automation
+          </div>
+
+        </div>
+
+        <div class="project">
+
+          <div class="project-title">
+            CRM Adoption & Sales Scaling Initiative
+          </div>
+
+          <div class="project-desc">
+            Designed customer funnels, training systems, and CRM workflows improving operational alignment and supporting 25% revenue growth.
+          </div>
+
+          <div class="stack">
+            CRM • Sales Ops • Customer Success • GTM
+          </div>
+
+        </div>
+
+        <div class="project">
+
+          <div class="project-title">
+            KPI Compliance Optimization
+          </div>
+
+          <div class="project-desc">
+            Developed operational improvement strategies and KPI monitoring practices leading to measurable compliance and quality gains.
+          </div>
+
+          <div class="stack">
+            Analytics • KPI Tracking • Operations • CX
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="footer">
+    Designed with futuristic glassmorphism inspired product portfolio aesthetics.
+  </div>
+
+</div>
 
 <script>
-  const profile = {
-    name: "YOUR NAME",
 
-    title: "AI Engineer • Product Builder • Full Stack Developer",
+  // futuristic hover glow
 
-    summary:
-      "AI-focused builder passionate about designing futuristic digital experiences, scalable software systems, automation workflows, and modern product ecosystems. Strong focus on combining engineering, design, and emerging AI technologies to create ambitious user-first products.",
+  const cards = document.querySelectorAll('.glass');
 
-    contact: {
-      Location: "Haryana, India",
-      Email: "your@email.com",
-      GitHub: "github.com/yourhandle",
-      LinkedIn: "linkedin.com/in/yourprofile",
-      Portfolio: "yourwebsite.com"
-    },
+  cards.forEach(card=>{
 
-    skills: [
-      { name: "AI Systems & Automation", level: 92 },
-      { name: "JavaScript / TypeScript", level: 94 },
-      { name: "React / Next.js", level: 91 },
-      { name: "Backend Architecture", level: 86 },
-      { name: "UI / UX Engineering", level: 84 },
-      { name: "Product Strategy", level: 82 }
-    ],
+    card.addEventListener('mousemove',(e)=>{
 
-    experience: [
-      {
-        role: "Independent AI Product Builder",
-        company: "Self-Directed Projects",
-        date: "2023 — Present",
-        desc:
-          "Building AI-first applications, automation systems, intelligent workflows, and futuristic user interfaces. Focused on rapid product iteration, scalable architecture, and integrating modern AI APIs into production-grade experiences."
-      },
-      {
-        role: "Full Stack Developer",
-        company: "Modern Web & SaaS Projects",
-        date: "2022 — Present",
-        desc:
-          "Developed high-performance full-stack web applications using React, Next.js, Node.js, cloud services, and API orchestration. Prioritized speed, usability, and elegant engineering systems."
-      }
-    ],
-
-    projects: [
-      {
-        title: "AI Workspace Ecosystem",
-        desc:
-          "Designed a futuristic AI productivity workspace integrating conversational interfaces, memory systems, automation pipelines, and modular productivity tooling.",
-        stack: "OpenAI APIs • React • Node.js • Vector Search"
-      },
-      {
-        title: "Realtime Intelligence Dashboard",
-        desc:
-          "Built a modern analytics dashboard with live data visualization, streaming APIs, and interactive UI systems optimized for performance and responsiveness.",
-        stack: "Next.js • Realtime APIs • PostgreSQL"
-      },
-      {
-        title: "Automation & Workflow Systems",
-        desc:
-          "Created intelligent workflow systems that automate repetitive operations, improve execution speed, and streamline product operations.",
-        stack: "JavaScript • Python • Cloud Functions"
-      }
-    ],
-
-    technologies: [
-      "React",
-      "Next.js",
-      "Node.js",
-      "TypeScript",
-      "Python",
-      "OpenAI APIs",
-      "PostgreSQL",
-      "Docker",
-      "AWS",
-      "TailwindCSS",
-      "Figma",
-      "Git"
-    ]
-  };
-
-  const app = document.getElementById('app');
-
-  app.innerHTML = `
-
-    <section class="hero">
-
-      <div class="glass">
-        <div class="eyebrow">Future Resume Interface</div>
-        <div class="name">${profile.name}</div>
-        <div class="title">${profile.title}</div>
-        <div class="summary">${profile.summary}</div>
-      </div>
-
-      <div class="glass">
-        <div class="section-title">Contact</div>
-
-        <div class="contact-grid">
-          ${Object.entries(profile.contact)
-            .map(
-              ([key, value]) => `
-                <div class="contact-card">
-                  <div class="contact-label">${key}</div>
-                  <div class="contact-value">${value}</div>
-                </div>
-              `
-            )
-            .join('')}
-        </div>
-      </div>
-
-    </section>
-
-    <section class="main">
-
-      <div>
-
-        <div class="glass section">
-          <div class="section-title">Core Skills</div>
-
-          ${profile.skills
-            .map(
-              skill => `
-                <div class="skill">
-                  <div class="skill-head">
-                    <span>${skill.name}</span>
-                    <span>${skill.level}%</span>
-                  </div>
-
-                  <div class="skill-bar">
-                    <div class="skill-fill" style="width:${skill.level}%"></div>
-                  </div>
-                </div>
-              `
-            )
-            .join('')}
-        </div>
-
-        <div class="glass section">
-          <div class="section-title">Tech Arsenal</div>
-
-          <div class="tags">
-            ${profile.technologies
-              .map(tech => `<div class="tag">${tech}</div>`)
-              .join('')}
-          </div>
-        </div>
-
-      </div>
-
-      <div>
-
-        <div class="glass section">
-          <div class="section-title">Experience</div>
-
-          <div class="timeline">
-            ${profile.experience
-              .map(
-                item => `
-                  <div class="timeline-item">
-                    <div class="role">${item.role}</div>
-                    <div class="company">${item.company}</div>
-                    <div class="date">${item.date}</div>
-                    <div class="desc">${item.desc}</div>
-                  </div>
-                `
-              )
-              .join('')}
-          </div>
-        </div>
-
-        <div class="glass section">
-          <div class="section-title">Highlighted Projects</div>
-
-          ${profile.projects
-            .map(
-              project => `
-                <div class="project">
-                  <div class="project-title">${project.title}</div>
-                  <div class="project-desc">${project.desc}</div>
-                  <div class="project-stack">${project.stack}</div>
-                </div>
-              `
-            )
-            .join('')}
-        </div>
-
-      </div>
-
-    </section>
-
-    <div class="footer">
-      Designed with futuristic glassmorphism + cyberpunk inspired UI.
-    </div>
-  `;
-
-  // Neon hover interaction
-  document.querySelectorAll('.glass').forEach(card => {
-    card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
+
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
       card.style.background = `
-        radial-gradient(circle at ${x}px ${y}px,
-        rgba(0,229,255,0.12),
-        rgba(15,23,42,0.78) 40%)`;
+      radial-gradient(
+      circle at ${x}px ${y}px,
+      rgba(0,229,255,0.12),
+      rgba(15,23,42,0.78) 45%)`;
+
     });
 
-    card.addEventListener('mouseleave', () => {
-      card.style.background = 'rgba(15, 23, 42, 0.78)';
+    card.addEventListener('mouseleave',()=>{
+
+      card.style.background='rgba(15,23,42,0.75)';
+
     });
+
   });
+
 </script>
 
 </body>
 </html>
-```
-
-Replace:
-
-* YOUR NAME
-* email
-* links
-
-Everything else is already tailored toward an AI-focused product engineer / futuristic builder profile.
